@@ -1,4 +1,4 @@
 Fashion Signup App
 
-Fashion storefront and user registration application.
+Fashion Storefront and User registration application.
 <br>
