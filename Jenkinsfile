@@ -20,7 +20,7 @@ pipeline {
     
     stage ("Checkout SCM"){
       steps {
-        git branch: 'main', credentialsId: 'github', url: 'https://github.com/vishalsharmat15-beep/register-app.git'
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/vishalsharmat15-beep/Fashion-Register-App.git'
       }
     }
 
@@ -91,8 +91,8 @@ pipeline {
     stage("Update GitOps Helm Values") {
       steps {
         script {
-          dir('gitops-register-app') {
-            git branch: 'main', credentialsId: 'github', url: 'https://github.com/vishalsharmat15-beep/gitops-register-app.git'
+          dir('GitOps-Fashion-Signup-App') {
+            git branch: 'main', credentialsId: 'github', url: 'https://github.com/vishalsharmat15-beep/GitOps-Fashion-Signup-App.git'
             sh "sed -i 's/^  tag: .*/  tag: \"${IMAGE_TAG}\"/' values.yaml"
             sh "git config user.name 'Jenkins' && git config user.email 'jenkins@localhost'"
             withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
